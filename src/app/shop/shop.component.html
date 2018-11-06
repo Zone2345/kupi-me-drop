@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3">
+      <app-filter></app-filter>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-sm-4 col-lg-4 col-md-4" *ngFor="let prod of products, let i = index">
+          <div class="thumbnail">
+            <img src="http://placehold.it/220x220" alt="">
+            <div class=" caption">
+              <h4 class="pull-right">{{prod.price}}</h4>
+              <h4><a href="#">{{prod.title}}</a>
+              </h4>
+              <!-- <h3>{{prod.description}}</h3> -->
+            </div>
+            <div class='caption-description'>
+              <p>{{prod.description}}</p>
+              <button [routerLink]="'details'" class="btn btn-success">Add to Cart</button>
+            </div>
+            <div class="ratings">
+              <p class="pull-right">15 reviews</p>
+              <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

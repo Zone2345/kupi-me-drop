@@ -1,0 +1,48 @@
+<section class="get-in-touch">
+  <h1 class="title">Sign Up</h1>
+  <form class="contact-form row" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-field col x-50">
+      <label class="label" for="name">First Name</label>
+      <input id="name" class="input-text js-input" type="text" formControlName="name" [ngClass]="{'is-invalid': submitted && f.name.errors}" />
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">First Name is required</div>
+      </div>
+    </div>
+    <div class="form-field col x-50">
+      <input id="surname" class="input-text js-input" type="text" formControlName="surname" [ngClass]="{'is-invalid': submitted && f.surname.errors}" />
+      <label class="label" for="surname">Last Name</label>
+      <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+        <div *ngIf="f.surname.errors.required">Last Name is required</div>
+      </div>
+    </div>
+    <div class="form-field col x-100">
+      <input id="email" class="input-text js-input" type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <label class="label" for="email">E-mail</label>
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <div class="form-field col x-100">
+      <input id="message" class="input-text js-input" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <label class="label" for="message">Password</label>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+    </div>
+    <div class="form-field col x-100 align-center">
+      <button [disabled]='loading' class="submit-btn" type="submit" value="Submit">Register</button>
+    </div>
+  </form>
+</section>
+<script>
+  $('.js-input').keyup(function () {
+    if ($(this).val()) {
+      $(this).addClass('not-empty');
+    } else {
+      $(this).removeClass('not-empty');
+    }
+  });
+
+</script>
