@@ -412,8 +412,6 @@ section .section-title {
 }
 
 .caption-description {
-  padding: 9px;
-  color: #333;
   display: inline;
   height: 50px;
   overflow: hidden;
